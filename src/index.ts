@@ -11,3 +11,19 @@ interface goal {
   id: string;
   reached: boolean;
   timestamp: Date;}
+ 
+// Eingabekontrolle
+function controlInput() {
+    if (!newgoalInput.value) {
+        newgoalBtn.disabled = true;
+        setcontrolMessage(controlMessages.INPUT_EMTPY, true);
+        return false;}
+    else {newgoalBtn.disabled = false;
+        setcontrolMessage(controlMessages.INPUT_VALID);
+        return true;}}
+    // Audgabe bei Keiner Eingabe/ richtiger Eingabe
+    function setcontrolMessage(msg: string, error = false) {
+      controlMessage.innerHTML = msg;}
+    const controlMessages = {
+      INPUT_EMTPY: "What do you want to do?",
+      INPUT_VALID: "Great, Press the Button or 'Enter' to add",};
