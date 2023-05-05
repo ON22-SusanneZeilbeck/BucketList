@@ -1,3 +1,5 @@
+import { saveChanges, clearStorage, saveBtn, resetBtn} from "./lcoalStorage";
+
 //DOM
 const newgoalInput = document.querySelector("#newgoalInput") as HTMLInputElement;
 const newgoalBtn = document.querySelector("#newgoalBtn") as HTMLButtonElement;
@@ -5,8 +7,6 @@ const controlMessage = document.querySelector("#controlMessage") as HTMLSpanElem
 const goalsContainer = document.querySelector("#goalsContainer") as HTMLDivElement;
 export const locationElement = document.getElementById("location") as HTMLElement;
 export const date_time_el = document.getElementById("date-time") as HTMLElement;
-export const saveBtn = document.querySelector("#saveBtn") as HTMLButtonElement;
-export const resetBtn = document.querySelector("#resetBtn") as HTMLButtonElement;
 
 //
 interface goal {
@@ -101,4 +101,5 @@ function reloadgoals() { //empty the goals list
             goalEntry.reached = !goalEntry.reached;}
           return goalEntry;});
         reloadgoals();}
+
     

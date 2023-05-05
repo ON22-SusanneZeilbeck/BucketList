@@ -1,4 +1,5 @@
-import { saveBtn, resetBtn } from "./index";
+const saveBtn = document.querySelector("#saveBtn") as HTMLButtonElement;
+const resetBtn = document.querySelector("#resetBtn") as HTMLButtonElement;
 
 let text = document.getElementById('goalsContainer');
         if (text){let myData;
@@ -27,3 +28,4 @@ let text = document.getElementById('goalsContainer');
             window.localStorage.clear();
             text.innerHTML = reset;}}
 
+export {saveChanges, clearStorage, saveBtn, resetBtn};
