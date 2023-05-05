@@ -73,4 +73,12 @@
     border: 3px solid #eddbdb;
     border-radius: 20px;}  
 
-  
+  /*date and time */
+  .date-time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: #352205;}
