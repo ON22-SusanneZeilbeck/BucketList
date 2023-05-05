@@ -59,7 +59,7 @@ function initApp() {
     reloadgoals();
     //empty input
     newgoalInput.value = "";}
-    
+
   //Anzeigen der Zielliste
 function reloadgoals() { //empty the goals list
     goalsContainer.innerHTML = "";
@@ -90,4 +90,15 @@ function reloadgoals() { //empty the goals list
           goalsContainer.appendChild(singlegoalContainer);
           //separator
           goalsContainer.appendChild(document.createElement("hr"));});}
+
+          //Ziel löschen oder "erreicht"
+    function deletegoal(id: string) {
+        goals = goals.filter((goal: goal) => goal.id !== id);
+        reloadgoals();}
+      function toggleFinishedState(id: string) {
+        goals = goals.map((goalEntry) => {
+          if (goalEntry.id === id) {
+            goalEntry.reached = !goalEntry.reached;}
+          return goalEntry;});
+        reloadgoals();}
     
