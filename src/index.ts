@@ -1,12 +1,11 @@
 import { saveChanges, clearStorage, saveBtn, resetBtn} from "./lcoalStorage";
+import { updateTime, location} from "./features";
 
 //DOM
 const newgoalInput = document.querySelector("#newgoalInput") as HTMLInputElement;
 const newgoalBtn = document.querySelector("#newgoalBtn") as HTMLButtonElement;
 const controlMessage = document.querySelector("#controlMessage") as HTMLSpanElement;
 const goalsContainer = document.querySelector("#goalsContainer") as HTMLDivElement;
-export const locationElement = document.getElementById("location") as HTMLElement;
-export const date_time_el = document.getElementById("date-time") as HTMLElement;
 
 //
 interface goal {
@@ -40,6 +39,8 @@ function initApp() {
     saveBtn.addEventListener("click", saveChanges);
     resetBtn.addEventListener("click", clearStorage);}
   initApp();
+  updateTime();
+  location();
   //
   function hasPressedEnterKeyOngoalInput(e: KeyboardEvent) {
     if (e.key === "Enter") {

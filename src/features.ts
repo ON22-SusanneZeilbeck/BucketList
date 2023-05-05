@@ -1,4 +1,8 @@
-import { date_time_el, locationElement } from "./index";
+
+
+const locationElement = document.getElementById("location") as HTMLElement;
+const date_time_el = document.getElementById("date-time") as HTMLElement;
+
 
  // Uhrzeit und Datum
  function updateTime() {
@@ -9,6 +13,7 @@ import { date_time_el, locationElement } from "./index";
     setInterval(updateTime, 1000);
   
     //Standort
+    function location(){
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
     const { latitude, longitude } = position.coords;
@@ -21,5 +26,6 @@ import { date_time_el, locationElement } from "./index";
     .catch((error) => {
           console.error(error);
           locationElement.textContent = "failed to get your current location";});});}
-          else {locationElement.textContent = "geolocation is not supported by your browser";}
+          else {locationElement.textContent = "geolocation is not supported by your browser";}}
   
+          export {updateTime, location};
