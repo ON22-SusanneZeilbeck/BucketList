@@ -59,4 +59,35 @@ function initApp() {
     reloadgoals();
     //empty input
     newgoalInput.value = "";}
-  
+    
+  //Anzeigen der Zielliste
+function reloadgoals() { //empty the goals list
+    goalsContainer.innerHTML = "";
+    goals.sort((goal1, goal2) => {//sort goals by date
+          return goal2.timestamp.getTime() - goal1.timestamp.getTime();})
+          .forEach((goal) => {
+          //create container for singlegoal
+          const singlegoalContainer = document.createElement("div");
+          singlegoalContainer.id = goal.id;
+          singlegoalContainer.innerHTML = `
+        <p style="${goal.reached && "text-decoration: line-through;"}">
+        ${goal.description}</p>`;
+          //create Delete Button
+          const deleteBtn = document.createElement("button");
+          deleteBtn.addEventListener("click", () => deletegoal(goal.id));
+          deleteBtn.style.backgroundColor = "#352205";
+          deleteBtn.innerHTML = "X";
+          //create reached Button
+          const reachedBtn = document.createElement("button");
+          reachedBtn.addEventListener("click", () => toggleFinishedState(goal.id));
+          if (goal.reached) {
+            reachedBtn.innerHTML = "add goal";}
+            else {reachedBtn.innerHTML = "reached";}
+          //get the delete btn in
+          singlegoalContainer.appendChild(reachedBtn);
+          singlegoalContainer.appendChild(deleteBtn);
+          //append it to the big goals container
+          goalsContainer.appendChild(singlegoalContainer);
+          //separator
+          goalsContainer.appendChild(document.createElement("hr"));});}
+    
