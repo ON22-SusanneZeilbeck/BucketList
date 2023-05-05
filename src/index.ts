@@ -30,3 +30,33 @@ function controlInput() {
     const controlMessages = {
       INPUT_EMTPY: "What do you want to do?",
       INPUT_VALID: "Great, Press the Button or 'Enter' to add",};
+
+      // Hauptfunktion
+function initApp() {
+    newgoalBtn.disabled = true;
+    newgoalBtn.addEventListener("click", addgoal);
+    newgoalInput.addEventListener("input", controlInput);
+    newgoalInput.addEventListener("keydown", hasPressedEnterKeyOngoalInput);
+    saveBtn.addEventListener("click", saveChanges);
+    resetBtn.addEventListener("click", clearStorage);}
+  initApp();
+  //
+  function hasPressedEnterKeyOngoalInput(e: KeyboardEvent) {
+    if (e.key === "Enter") {
+      addgoal();  }}
+  
+  // Hinzufügen von Zielen
+  let goals: goal[] = [];
+  function addgoal() {
+    if (!controlInput()) {return; }
+    const timestamp = new Date();
+    const newgoal: goal = {
+      description: newgoalInput.value,
+      id: `${timestamp.getTime()}-rn-${Math.floor(Math.random() * 999)}`,
+      reached: false,
+      timestamp,};
+    goals.push(newgoal);
+    reloadgoals();
+    //empty input
+    newgoalInput.value = "";}
+  
