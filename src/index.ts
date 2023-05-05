@@ -5,6 +5,9 @@ const controlMessage = document.querySelector("#controlMessage") as HTMLSpanElem
 const goalsContainer = document.querySelector("#goalsContainer") as HTMLDivElement;
 export const locationElement = document.getElementById("location") as HTMLElement;
 export const date_time_el = document.getElementById("date-time") as HTMLElement;
+export const saveBtn = document.querySelector("#saveBtn") as HTMLButtonElement;
+export const resetBtn = document.querySelector("#resetBtn") as HTMLButtonElement;
+
 //
 interface goal {
   description: string;
@@ -21,7 +24,7 @@ function controlInput() {
     else {newgoalBtn.disabled = false;
         setcontrolMessage(controlMessages.INPUT_VALID);
         return true;}}
-    // Audgabe bei Keiner Eingabe/ richtiger Eingabe
+    // Ausgabe bei Keiner Eingabe/ richtiger Eingabe
     function setcontrolMessage(msg: string, error = false) {
       controlMessage.innerHTML = msg;}
     const controlMessages = {
