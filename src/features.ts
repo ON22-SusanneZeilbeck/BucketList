@@ -2,8 +2,6 @@
 
 const locationElement = document.getElementById("location") as HTMLElement;
 const date_time_el = document.getElementById("date-time") as HTMLElement;
-
-
  // Uhrzeit und Datum
  function updateTime() {
     const now = new Date();
@@ -27,5 +25,4 @@ const date_time_el = document.getElementById("date-time") as HTMLElement;
           console.error(error);
           locationElement.textContent = "failed to get your current location";});});}
           else {locationElement.textContent = "geolocation is not supported by your browser";}}
-  
-          export {updateTime, location};
+    export {updateTime, location};
